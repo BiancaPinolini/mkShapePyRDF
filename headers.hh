@@ -30,6 +30,7 @@ RVec<double> AbsVec(RVec<double> vec){
     return out;
 }
 
+
 RVec<bool> OddVec(RVec<int> vec){
     RVec<bool> out;
     for (auto const & el: vec){

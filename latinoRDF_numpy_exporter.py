@@ -61,7 +61,12 @@ joblist = []
 
 for sample in samples:
     print(sample)
-    trees, nfiles = lrdf.build_dataframe(config_dir, version, sample, R, "root") # ROOT RDF "interactive"
+    try:
+        trees, nfiles = lrdf.build_dataframe(config_dir, version, sample, R, "root") # ROOT RDF "interactive"
+    except Exception as e:
+        print("Error!", e)
+        exit(1)
+
     for tree, nfile in zip(trees,nfiles):
         joblist.append((tree,nfile))
         

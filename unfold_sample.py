@@ -9,6 +9,7 @@ parser.add_argument("-o","--output", type=str, help="Output File")
 parser.add_argument("-s","--samples", type=str, nargs="+", help="Samples to output")
 args = parser.parse_args()
 
+print(args.input)
 exec(open(args.input))
 
 out = {k:v for k,v in samples.items() if k in args.samples}
