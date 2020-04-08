@@ -18,13 +18,32 @@ cuts["supercut"] ={
 
 # signal region
 
-cuts["sr"] = {
-    'expr': 'mjj>500 \
-              && detajj > 3.5 \
-              && Alt(CleanJet_pt,0,0.)>30 && Alt(CleanJet_pt,1,0.)>30 \
-              && bVeto \
-                 ' ,
+cuts["me_soft"] = {
+    'expr': 'mjj > 100 && Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 && Alt(CleanJet_pt,0,0)>30 && Alt(CleanJet_pt,1,0)>30',
     'parent' : 'supercut',
     'doVars': True,
     'doNumpy': True
 }
+
+cuts["me_medium"] = {
+    'expr': 'mjj > 300 \
+             && (Alt(CleanJet_pt,0,0.)>30 \
+             && Alt(CleanJet_pt,1,0.)>30) \
+             && Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 \
+             && detajj > 3.5',
+    'parent' : 'supercut',
+    'doVars': True,
+    'doNumpy': True
+}
+
+
+cuts["me_hard"] = {
+    'expr': 'mjj > 500 \
+             && Alt(CleanJet_pt,0,0.)>30 \
+             && Alt(CleanJet_pt,1,0.)>30 \
+             && Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 \
+             && detajj > 4',
+    'parent' : 'supercut',
+    'doVars': True,
+    'doNumpy': True
+

@@ -54,7 +54,6 @@ def makeMCDirectory(var=''):
 #mcDirectory = makeMCDirectory()
 mcDirectory = '/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Autumn18_102X_nAODv5_Full2018v5/MCl1loose2018v5__MCCorr2018v5__l2loose__l2tightOR2018v5'
 
-
 #########################################
 ############ MC COMMON ##################
 #########################################
@@ -100,3 +99,4 @@ samples['WWewk'] = {
 
 
 signals.append('WpWmJJ_EWK')
+
