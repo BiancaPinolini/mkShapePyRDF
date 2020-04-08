@@ -17,22 +17,22 @@ mc = [skey for skey in samples if skey not in ('Fake', 'DATA')]
 
 # distance between lepton and jet
 aliases['R_j1l1'] = {
-        'expr': 'Alt(TMath::Sqrt(TMath::Power(CleanJet_eta[0]-Lepton_eta[0],2)-TMath::Power(CleanJet_phi[0]-Lepton_phi[0],2)),-9999)',
+        'expr': 'TMath::Sqrt(TMath::Power(CleanJet_eta[0]-Lepton_eta[0],2)-TMath::Power(CleanJet_phi[0]-Lepton_phi[0],2))',
         'samples': mc + ['DATA']
 }
 
 aliases['R_j2l1'] = {
-        'expr': 'Alt(TMath::Sqrt(TMath::Power(CleanJet_eta[1]-Lepton_eta[0],2)-TMath::Power(CleanJet_phi[1]-Lepton_phi[0],2)),-9999)',
+        'expr': 'TMath::Sqrt(TMath::Power(CleanJet_eta[1]-Lepton_eta[0],2)-TMath::Power(CleanJet_phi[1]-Lepton_phi[0],2))',
         'samples': mc + ['DATA']
 }
 
 aliases['R_j1l2'] = {
-        'expr': 'Alt(TMath::Sqrt(TMath::Power(CleanJet_eta[0]-Lepton_eta[1],2)-TMath::Power(CleanJet_phi[0]-Lepton_phi[1],2)),-9999)',
+        'expr': 'TMath::Sqrt(TMath::Power(CleanJet_eta[0]-Lepton_eta[1],2)-TMath::Power(CleanJet_phi[0]-Lepton_phi[1],2))',
         'samples': mc + ['DATA']
 }
 
 aliases['R_j2l2'] = {
-        'expr': 'Alt(TMath::Sqrt(TMath::Power(CleanJet_eta[1]-Lepton_eta[1],2)-TMath::Power(CleanJet_phi[1]-Lepton_phi[1],2)),-9999)',
+        'expr': 'TMath::Sqrt(TMath::Power(CleanJet_eta[1]-Lepton_eta[1],2)-TMath::Power(CleanJet_phi[1]-Lepton_phi[1],2))',
         'samples': mc + ['DATA']
 }
 
