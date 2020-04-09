@@ -66,11 +66,11 @@ variables['Mll']  = {       'name': 'mll',
                             'fold'  : 3
                         }
 
-#variables['btag_first']  = {   'name'  : '(fabs(CleanJet_eta[0]) <= fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[0]) + (fabs(CleanJet_eta[0]) > fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[1])',
-#                              'range' : (20,0,1),
-#                              'xaxis' : 'b-tag of 1^{st} most central jet',
-#                              'fold'  : 3
-#                       }
+variables['btag_first']  = {   'name'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) <= fabs(Alt(CleanJet_eta,1,-9999.))) * Take(Jet_btagDeepB,CleanJet_jetIdx[0]) + (fabs(Alt(CleanJet_eta,0,9999.)) > fabs(Alt(CleanJet_eta,1,-9999.))) * Take(Jet_btagDeepB,CleanJet_jetIdx[1])',
+                              'range' : (20,0,1),
+                              'xaxis' : 'b-tag of 1^{st} most central jet',
+                              'fold'  : 3
+                       }
 
 #variables['btag_second']  = {   'name'  : '(fabs(CleanJet_eta[0]) > fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[0]) + (fabs(CleanJet_eta[0]) <= fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[1])',
 #                              'range' : (20,0,1),
