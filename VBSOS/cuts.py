@@ -16,6 +16,21 @@ cuts["supercut"] ={
     'doNumpy': False
 }
 
+#cuts["supercut"] = {
+#	'expr': '1',
+#	'parent': None,
+#	'doVars': False,
+#	'doNumpy': False
+#}
+
+#cuts["no"] = {
+#	'expr': '1',
+#	'parent' : 'supercut',
+#	'doVars': True,
+#	'doNumpy': True
+#}
+
+
 # signal region
 
 cuts["em_loose"] = {
@@ -27,25 +42,25 @@ cuts["em_loose"] = {
     'doNumpy': True
 }
 
-cuts["em_medium"] = {
-    'expr': 'mjj > 300 \
-             && (Alt(CleanJet_pt,0,0.)>30 \
-             && Alt(CleanJet_pt,1,0.)>30) \
-             && Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 \
-             && fabs(detajj) > 3.5',
-    'parent' : 'supercut',
-    'doVars': True,
-    'doNumpy': True
-}
+#cuts["em_medium"] = {
+#    'expr': 'mjj > 300 \
+#             && Alt(CleanJet_pt,0,0.)>30 \
+#             && Alt(CleanJet_pt,1,0.)>30 \
+#             && Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 \
+#             && fabs(detajj) > 3.5',
+#    'parent' : 'supercut',
+#    'doVars': True,
+#    'doNumpy': True
+#}
 
 
-cuts["em_tight"] = {
-    'expr': 'mjj > 500 \
-             && Alt(CleanJet_pt,0,0.)>30 \
-             && Alt(CleanJet_pt,1,0.)>30 \
-             && Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 \
-             && fabs(detajj) > 4',
-    'parent' : 'supercut',
-    'doVars': True,
-    'doNumpy': True
-}
+#cuts["em_tight"] = {
+#    'expr': 'mjj > 500 \
+#             && Alt(CleanJet_pt,0,0.)>30 \
+#             && Alt(CleanJet_pt,1,0.)>30 \
+#             && Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 \
+#             && fabs(detajj) > 4',
+#    'parent' : 'supercut',
+#    'doVars': True,
+#    'doNumpy': True
+#}

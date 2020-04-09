@@ -65,17 +65,18 @@ variables['Mll']  = {       'name': 'mll',
                             'xaxis' : 'm_{ll} [GeV]',
                             'fold'  : 3
                         }
-variables['btag_first']  = {   'name'  : '(fabs(CleanJet_eta[0]) <= fabs(CleanJet_eta[1])) * Jet_btagDeepB[CleanJet_jetIdx[0]] + (fabs(CleanJet_eta[0]) > fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[1])',
-                              'range' : (20,0,1),
-                              'xaxis' : 'b-tag of 1^{st} most central jet',
-                              'fold'  : 3
-                       }
 
-variables['btag_second']  = {   'name'  : '(fabs(CleanJet_eta[0]) > fabs(CleanJet_eta[1])) * Jet_btagDeepB[CleanJet_jetIdx[0]] + (fabs(CleanJet_eta[0]) <= fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[1])',
-                              'range' : (20,0,1),
-                              'xaxis' : 'b-tag of 2^{nd} most central jet',
-                              'fold'  : 3
-                       }
+#variables['btag_first']  = {   'name'  : '(fabs(CleanJet_eta[0]) <= fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[0]) + (fabs(CleanJet_eta[0]) > fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[1])',
+#                              'range' : (20,0,1),
+#                              'xaxis' : 'b-tag of 1^{st} most central jet',
+#                              'fold'  : 3
+#                       }
+
+#variables['btag_second']  = {   'name'  : '(fabs(CleanJet_eta[0]) > fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[0]) + (fabs(CleanJet_eta[0]) <= fabs(CleanJet_eta[1])) * Take(Jet_btagDeepB,CleanJet_jetIdx[1])',
+#                              'range' : (20,0,1),
+#                              'xaxis' : 'b-tag of 2^{nd} most central jet',
+#                              'fold'  : 3
+#                       }
 
 variables['dR_jl1'] = { 'name' : '(R_j1l1 < R_j2l1)*R_j1l1+(R_j1l1 >= R_j2l1)*R_j2l1',
  				'range' : (20,0,4),
