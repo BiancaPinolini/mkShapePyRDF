@@ -16,12 +16,26 @@ configurations = os.path.dirname(configurations) # Configurations
 mc = [skey for skey in samples if skey not in ('Fake', 'DATA')]
 
 
-# cut
-aliases['em_tight'] = {
-    'expr': 'mjj > 500 && detajj > 4',
-    'samples': mc + ['DATA']
+# distance between lepton and jet
+aliases['R_j1l1'] = {
+        'expr': 'TMath::Sqrt(TMath::Power(Alt(CleanJet_eta,0,-9999.)-Lepton_eta[0],2)+TMath::Power(Alt(CleanJet_phi,0,-9999.)-Lepton_phi[0],2))',
+        'samples': mc + ['DATA']
 }
 
+aliases['R_j2l1'] = {
+        'expr': 'TMath::Sqrt(TMath::Power(Alt(CleanJet_eta,1,-9999.)-Lepton_eta[0],2)+TMath::Power(Alt(CleanJet_phi,1,-9999.)-Lepton_phi[0],2))',
+        'samples': mc + ['DATA']
+}
+
+aliases['R_j1l2'] = {
+        'expr': 'TMath::Sqrt(TMath::Power(Alt(CleanJet_eta,0,-9999.)-Lepton_eta[1],2)+TMath::Power(Alt(CleanJet_phi,0,-9999.)-Lepton_phi[1],2))',
+        'samples': mc + ['DATA']
+}
+
+aliases['R_j2l2'] = {
+        'expr': 'TMath::Sqrt(TMath::Power(Alt(CleanJet_eta,1,-9999.)-Lepton_eta[1],2)+TMath::Power(Alt(CleanJet_phi,1,-9999.)-Lepton_phi[1],2))',
+        'samples': mc + ['DATA']
+}
 
 
 # other aliases

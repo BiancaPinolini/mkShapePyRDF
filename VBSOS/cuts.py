@@ -19,7 +19,7 @@ cuts["supercut"] ={
 }
 
 cuts["em_tight"] = {
-    'expr': 'em_tight',
+    'expr': 'mjj > 500 && fabs(detajj) > 4',
     'parent' : 'supercut',
     'doVars': True,
     'doNumpy': True
