@@ -37,7 +37,6 @@ aliases['R_j2l2'] = {
         'samples': mc + ['DATA']
 }
 
-
 # other aliases
 eleWP='mvaFall17V1Iso_WP90'
 muWP='cut_Tight_HWWW'

@@ -55,16 +55,18 @@ variables['Mll']  = {       'name': 'mll',
                             'xaxis' : 'm_{ll} [GeV]',
                             'fold'  : 3
                         }
-variables['btag_first']  = {   'name'  : '(fabs(CleanJet_eta[0]) <= fabs(CleanJet_eta[1])) * Jet_btagDeepB[CleanJet_jetIdx[0]] + (fabs(CleanJet_eta[0]) > fabs(CleanJet_eta[1])) * Jet_btagDeepB[CleanJet_jetIdx[1]]',
+variables['btag_first']  = {   'name'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) <= fabs(Alt(CleanJet_eta,1,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[0]] + (fabs(Alt(CleanJet_eta,1,-9999.)) < fabs(Alt(CleanJet_eta,0,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[1]]',
                                 'range' : (20,0,1),
                                 'xaxis' : 'b-tag of the 1^{st} most central jet',
                                 'fold'  : 3
                             }
-aliases['dR_jl1'] = {
-    'expr': '(R_j1l1 < R_j2l1)*R_j1l1+(R_j1l1 >= R_j2l1)*R_j2l1',
-    'samples': mc + ['DATA']
-}
-aliases['dR_jl2'] = {
-    'expr': '(R_j1l2 < R_j2l2)*R_j1l2+(R_j1l2 >= R_j2l2)*R_j2l2',
-    'samples': mc + ['DATA']
-}
+variables['dR_jl1'] = {	'name' : '(R_j1l1 < R_j2l1)*R_j1l1+(R_j1l1 >= R_j2l1)*R_j2l1',
+                        'range' : (50,0,10),
+                        'xaxis' : 'R from 1^{st} lep to nearest jet',
+                        'fold'  : 3
+                            }
+variables['dR_jl2'] = { 'name' : '(R_j1l2 < R_j2l2)*R_j1l2+(R_j1l2 >= R_j2l2)*R_j2l2',
+                        'range' : (50,0,10),
+                        'xaxis' : 'R from 2^{nd} lep to nearest jet',
+                        'fold'  : 3
+                            }
