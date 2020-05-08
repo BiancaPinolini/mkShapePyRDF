@@ -60,7 +60,7 @@ mcDirectory = '/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Autumn18_
 
 # SFweight does not include btag weights
 mcCommonWeightNoMatch = 'XSWeight*SFweight*METFilter_MC'
-mcCommonWeight = 'XSWeight*SFweight*PromptGenLepMatch2l*METFilter_MC'
+mcCommonWeight = 'XSWeight*SFweight*METFilter_MC*PromptGenLepMatch2l'
 
 ###########################################
 #############  BACKGROUNDS  ###############
@@ -68,12 +68,12 @@ mcCommonWeight = 'XSWeight*SFweight*PromptGenLepMatch2l*METFilter_MC'
 
 ###### Top #######
 
-files = nanoGetSampleFiles(mcDirectory, 'ST_s-channel_ext1') + \
-    nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') + \
-    nanoGetSampleFiles(mcDirectory, 'ST_t-channel_antitop') + \
-    nanoGetSampleFiles(mcDirectory, 'ST_t-channel_top') + \
-    nanoGetSampleFiles(mcDirectory, 'ST_tW_antitop_ext1') + \
-    nanoGetSampleFiles(mcDirectory, 'ST_tW_top_ext1')
+files = nanoGetSampleFiles(mcDirectory, 'ST_s-channel_ext1') #+ \
+    # nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') + \
+    # nanoGetSampleFiles(mcDirectory, 'ST_t-channel_antitop') + \
+    # nanoGetSampleFiles(mcDirectory, 'ST_t-channel_top') + \
+    # nanoGetSampleFiles(mcDirectory, 'ST_tW_antitop_ext1') + \
+    # nanoGetSampleFiles(mcDirectory, 'ST_tW_top_ext1')
 
 samples['top'] = {
     'name': files,
