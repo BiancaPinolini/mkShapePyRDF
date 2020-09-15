@@ -3,9 +3,6 @@
 cuts["supercut"] ={
     'expr': 'mll>50  \
             && ptll > 30 \
-            && (Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*13 || \
-                Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-11*11 || \
-                Alt(Lepton_pdgId,0,0)*Alt(Lepton_pdgId,1,0)==-13*13)\
             && Lepton_pt[0]>25 \
             && Lepton_pt[1]>10 \
             && Alt(Lepton_pt,2,0.)<10 \
@@ -18,9 +15,16 @@ cuts["supercut"] ={
     'doNumpy': False
 }
 
-cuts["em_tight"] = {
-    'expr': 'mjj > 500 && fabs(detajj) > 4',
+cuts["sr"] = {
+    'expr': 'mjj>400 && detajj>3.5 && Zeppll_al < 1 && mth>60 && bVeto',
     'parent' : 'supercut',
     'doVars': True,
     'doNumpy': True
 }
+
+# cuts["sr"] = {
+#     'expr': 'mth > 60 && bVetoForward',
+#     'parent' : 'supercut',
+#     'doVars': True,
+#     'doNumpy': True
+# }

@@ -37,6 +37,44 @@ aliases['R_j2l2'] = {
         'samples': mc + ['DATA']
 }
 
+# Zeppenfeld Variables
+aliases['Zeppll_al'] = {
+    'expr' : '0.5*fabs((Lepton_eta[0]+Lepton_eta[1])-(Alt(CleanJet_eta,0,-9999.)+Alt(CleanJet_eta,1,-9999.)))'
+}
+aliases['Zepp1_al'] = {
+    'expr' : 'Lepton_eta[0]-0.5*(Alt(CleanJet_eta,0,-9999.)+Alt(CleanJet_eta,1,-9999.))'
+}
+aliases['Zepp2_al'] = {
+    'expr' : 'Lepton_eta[1]-0.5*(Alt(CleanJet_eta,0,-9999.)+Alt(CleanJet_eta,1,-9999.))'
+}
+
+# bVeto forward
+aliases['pT_forward']  = {
+    'expr'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) > fabs(Alt(CleanJet_eta,1,-9999.))) * Alt(CleanJet_pt,0,-9999.) + (fabs(Alt(CleanJet_eta,1,-9999.)) >= fabs(Alt(CleanJet_eta,0,-9999.))) * Alt(CleanJet_pt,1,-9999.)',
+    'samples': mc + ['DATA']
+}
+aliases['eta_forward']  = {
+    'expr'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) > fabs(Alt(CleanJet_eta,1,-9999.))) * abs(Alt(CleanJet_eta,0,-9999.)) + (fabs(Alt(CleanJet_eta,1,-9999.)) >= fabs(Alt(CleanJet_eta,0,-9999.))) * abs(Alt(CleanJet_eta,1,-9999.))',
+    'samples': mc + ['DATA']
+}
+aliases['btag_forward']  = {
+    'expr'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) > fabs(Alt(CleanJet_eta,1,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[0]] + (fabs(Alt(CleanJet_eta,1,-9999.)) >= fabs(Alt(CleanJet_eta,0,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[1]]',
+    'samples': mc + ['DATA']
+}
+aliases['bVetoForward'] = {
+    'expr': '(pT_forward>20. && eta_forward<2.5 && btag_forward>0.1241)==0',
+    'samples': mc + ['DATA']
+}
+
+aliases['qgl_forward'] = {
+    'expr'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) > fabs(Alt(CleanJet_eta,1,-9999.))) * Alt(Jet_qgl,0,-9999.) + (fabs(Alt(CleanJet_eta,1,-9999.)) >= fabs(Alt(CleanJet_eta,0,-9999.))) * Alt(Jet_qgl,1,-9999.)',
+    'samples': mc + ['DATA']
+}
+aliases['qgl_central'] = {
+    'expr'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) > fabs(Alt(CleanJet_eta,1,-9999.))) * Alt(Jet_qgl,1,-9999.) + (fabs(Alt(CleanJet_eta,1,-9999.)) >= fabs(Alt(CleanJet_eta,0,-9999.))) * Alt(Jet_qgl,0,-9999.)',
+    'samples': mc + ['DATA']
+}
+
 # other aliases
 eleWP='mvaFall17V1Iso_WP90'
 muWP='cut_Tight_HWWW'
@@ -105,8 +143,8 @@ aliases['PromptGenLepMatch2l'] = {
 lastcopy = (1 << 13)
 
 aliases['isTTbar'] = {
-    'expr': 'Sum(AbsVec(GenPart_pdgId) == 6 && OddVec(GenPart_statusFlags / %d)) == 2' % lastcopy,
-    'samples': ['top']
+    'expr': 'Sum(AbsVec(GenPart_pdgId) == 6 && OddVec(GenPart_statusFlags / %d)) == 2' % lastcopy
+    # 'samples': ['top']
 }
 
 aliases['isSingleTop'] = {
@@ -128,9 +166,6 @@ aliases['Top_pTrw'] = {
     'expr': 'isTTbar * (TMath::Sqrt(TMath::Exp(0.0615 - 0.0005 * topGenPtOTF) * TMath::Exp(0.0615 - 0.0005 * antitopGenPtOTF))) + isSingleTop',
     'samples': ['top']
 }
-
-# Jet bins
-# using Alt$(CleanJet_pt[n], 0) instead of Sum(CleanJet_pt >= 30) because jet pt ordering is not strictly followed in JES-varied samples
 
 #bjet
 # No jet with pt > 30 GeV
@@ -163,6 +198,11 @@ aliases['bVetoT'] = {
 # aliases['centralVeto'] = {
 #     'expr': 'Sum(Min(AbsVec(CleanJet_eta-CleanJet_eta[0]),AbsVec(CleanJet_eta-CleanJet_eta[1]))<1 && (CleanJet_eta <= min(CleanJet_eta[0],CleanJet_eta[1]) || CleanJet_eta >=max(CleanJet_eta[0],CleanJet_eta[1]))) >= 3'
 # }
+
+aliases['Zll'] = {
+    'expr' : '0.5*fabs((Lepton_eta[0]+Lepton_eta[1])-(CleanJet_eta[0]+CleanJet_eta[1]))'
+}
+
 aliases['bReq'] = {
     'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.4184) >= 1'
 }
@@ -243,6 +283,3 @@ aliases['lhe_mW2'] = {
     'expr': 'TMath::Sqrt(2. * LHEPart_pt[2] * LHEPart_pt[3] * (TMath::CosH(LHEPart_eta[2] - LHEPart_eta[3]) - TMath::Cos(LHEPart_phi[2] - LHEPart_phi[3])))',
     'samples': ['WWewk_limW']
 }
-
-
-

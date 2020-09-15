@@ -1,9 +1,14 @@
 # variables
 
 variables['detajj']  = {   'name': 'fabs(detajj)',
-                           'range' : (20,0,9),
+                           'range' : (20,3.5,9),
                            'xaxis' : '#Delta#eta_{jj}',
                            'fold' : 3
+                        }
+variables['ptll']    = {    'name': 'ptll',               
+                            'range' : (20,30,200),   
+                            'xaxis' : 'pt_{ll} [GeV]', 
+                            'fold' : 3
                         }
 variables['eta1']  = {   'name': 'Lepton_eta[0]',
                         'range' : (40,-3.14,3.14),
@@ -55,7 +60,7 @@ variables['Mll']  = {       'name': 'mll',
                             'xaxis' : 'm_{ll} [GeV]',
                             'fold'  : 3
                         }
-variables['btag_first']  = {   'name'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) <= fabs(Alt(CleanJet_eta,1,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[0]] + (fabs(Alt(CleanJet_eta,1,-9999.)) < fabs(Alt(CleanJet_eta,0,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[1]]',
+variables['btag_central']  = {   'name'  : '(fabs(Alt(CleanJet_eta,0,-9999.)) <= fabs(Alt(CleanJet_eta,1,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[0]] + (fabs(Alt(CleanJet_eta,1,-9999.)) < fabs(Alt(CleanJet_eta,0,-9999.))) * Jet_btagDeepB[CleanJet_jetIdx[1]]',
                                 'range' : (20,0,1),
                                 'xaxis' : 'b-tag of the 1^{st} most central jet',
                                 'fold'  : 3
@@ -70,3 +75,48 @@ variables['dR_jl2'] = { 'name' : '(R_j1l2 < R_j2l2)*R_j1l2+(R_j1l2 >= R_j2l2)*R_
                         'xaxis' : 'R from 2^{nd} lep to nearest jet',
                         'fold'  : 3
                             }
+variables['Zeppll']  = {   'name': 'Zeppll_al',
+                           'range' : (10,0,1),
+                           'xaxis' : 'Zeppenfeld_{ll}',
+                           'fold' : 3
+                           }  
+variables['Zepp1']  = {   'name': 'Zepp1_al',
+                           'range' : (10,-5,5),
+                           'xaxis' : 'Zeppenfeld_{1}',
+                           'fold' :0
+                           }
+variables['Zepp2']  = {   'name': 'Zepp2_al',
+                           'range' : (10,-5,5),
+                           'xaxis' : 'Zeppenfeld_{2}',
+                           'fold' :0
+                           }
+variables['mjj']  = {   'name': 'mjj',
+                        'range' : (10,400,3000),
+                        'xaxis' : 'm_{jj} [GeV]',
+                        'fold' : 3
+                        } 
+
+variables['events']  = {'name': '1',
+                        'range' : (1,0,2),
+                        'xaxis' : 'events',
+                        'fold' : 3
+                        }
+
+variables['qgl_forward'] = { 'name': 'qgl_forward',
+                         'range' : (50, 0, 1),
+                         'xaxis' : 'Quark vs Gluon likelihood discriminator - Forward jet',
+                         'fold' : 3
+                       }
+                       
+variables['qgl_central'] = { 'name': 'qgl_central',
+                         'range' : (50, 0, 1),
+                         'xaxis' : 'Quark vs Gluon likelihood discriminator - Central jet',
+                         'fold' : 3
+                       }
+                       
+
+# variables['Jet_mult'] = { 'name': 'Jet_nConstituents',
+#                          'range' : (15, 0, 150),
+#                          'xaxis' : 'Number of particles in the jet',
+#                          'fold' : 3
+#                        }

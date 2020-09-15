@@ -59,6 +59,7 @@ This means that each sample can be splitted in more than one "job".
 '''
 joblist = []
 
+
 for sample in samples:
     print(sample)
     try:
@@ -70,6 +71,7 @@ for sample in samples:
     for tree, nfile in zip(trees,nfiles):
         joblist.append((tree,nfile))
         
+
 ######## Now sort by number of files
 jobslist = sorted(joblist, key=lambda v: v[1], reverse=True)
 
